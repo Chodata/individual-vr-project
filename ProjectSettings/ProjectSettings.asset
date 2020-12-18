@@ -121,8 +121,10 @@ PlayerSettings:
     Others: 1
   bundleVersion: 0.1
   preloadedAssets:
+  - {fileID: 11400000, guid: 18a3d711298434b708886028b5c187cd, type: 2}
   - {fileID: 2902333782505889296, guid: dce16abbe57444a2d8510a643529164a, type: 2}
   - {fileID: 11400000, guid: 91e20b813902248518c2ee228d8f4ed4, type: 2}
+  - {fileID: 0}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -749,6 +751,6 @@ PlayerSettings:
   projectName: 
   organizationId: 
   cloudEnabled: 0
-  enableNativePlatformBackendsForNewInputSystem: 0
-  disableOldInputManagerSupport: 0
+  enableNativePlatformBackendsForNewInputSystem: 1
+  disableOldInputManagerSupport: 1
   legacyClampBlendShapeWeights: 0
