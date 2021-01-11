@@ -5,8 +5,13 @@ using UnityEngine;
 public class MyInterface : MonoBehaviour
 {
     // Start is called before the first frame update
+    public Vector3 originPos, leftPos, rightPos;
+
     void Start()
     {
+        originPos = transform.position;
+        leftPos = transform.position + new Vector3(-1.5f,0,0);
+        rightPos = transform.position + new Vector3(1.5f,0,0);
         
     }
 
@@ -15,4 +20,21 @@ public class MyInterface : MonoBehaviour
     {
         
     }
+
+    void ShiftRight(){
+        transform.localScale = transform.localScale/2;
+        
+    }
+
+    void ShiftLeft(){
+
+    }
+
+    void CancelShift(){
+        transform.localScale = transform.localScale * 2;
+
+    }
+
+
+
 }
