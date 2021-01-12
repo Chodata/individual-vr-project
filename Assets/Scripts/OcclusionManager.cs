@@ -21,11 +21,10 @@ public class OcclusionManager : MonoBehaviour
         RaycastHit hit;
         Vector3 startRay = myObject.transform.position;
         Vector3 endRay = myObject.transform.TransformDirection(camera.transform.position - myObject.transform.position);
-        if (Physics.Raycast(startRay, endRay, out hit, 100))
+        if (Physics.Raycast(startRay, endRay, out hit, 100) && hit.collider.gameObject.tag == "MyInterface")
         {
-            Debug.DrawRay(startRay, endRay * hit.distance, Color.yellow);
+            Debug.DrawRay(startRay, endRay * hit.distance, Color.red);
             Debug.Log("Did Hit");
-
         }
         else
         {
