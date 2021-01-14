@@ -1058,7 +1058,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &490476432
 PrefabInstance:
@@ -1672,9 +1672,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 683812757}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2051895604}
   m_Father: {fileID: 266595014}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1729,7 +1730,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 698556802}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1.56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 266595014}
@@ -2625,6 +2626,10 @@ MonoBehaviour:
   myInterface: {fileID: 2051895599}
   myObject: {fileID: 1900725051}
   camera: {fileID: 683812760}
+  animationTime: 0.5
+  isPlayingAnim: 0
+  isAtLeft: 0
+  isAtRight: 0
 --- !u!4 &975672550
 Transform:
   m_ObjectHideFlags: 0
@@ -2637,7 +2642,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1070404648
 PrefabInstance:
@@ -4036,7 +4041,7 @@ Transform:
   - {fileID: 848174406}
   - {fileID: 1207033057}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1575482964
 PrefabInstance:
@@ -4713,7 +4718,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1648554894
 PrefabInstance:
@@ -5620,6 +5625,7 @@ MonoBehaviour:
   originPos: {x: 0, y: 0, z: 0}
   leftPos: {x: 0, y: 0, z: 0}
   rightPos: {x: 0, y: 0, z: 0}
+  resizeAnimator: {fileID: 0}
 --- !u!95 &2051895600
 Animator:
   serializedVersion: 3
@@ -5630,7 +5636,7 @@ Animator:
   m_GameObject: {fileID: 2051895598}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 84962cb1227e448a58b8b3c83c0745ee, type: 2}
+  m_Controller: {fileID: 9100000, guid: ddec3c1aaa9194d3fbe4dab3e0ea2bb8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -5706,13 +5712,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2051895598}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.04000002, y: 0.05326414, z: 1.4089999}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.04000002, y: 0.123264074, z: 1.49}
   m_LocalScale: {x: 2.089, y: 1.2272, z: 0.01}
   m_Children:
   - {fileID: 2074052003}
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 683812761}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2074052002
 PrefabInstance:
@@ -5785,6 +5791,11 @@ PrefabInstance:
         type: 3}
       propertyPath: InitialUrl
       value: google.com
+      objectReference: {fileID: 0}
+    - target: {fileID: 114949350411584270, guid: d704fe1266adf446ebcfa350586e1bc7,
+        type: 3}
+      propertyPath: InitialResolution
+      value: 800
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d704fe1266adf446ebcfa350586e1bc7, type: 3}

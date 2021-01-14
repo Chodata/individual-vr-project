@@ -13,6 +13,9 @@ public class MyObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector3 direction = new Vector3(0,0,0);
+
+        transform.Translate(direction * Time.deltaTime);
         
     }
 }
