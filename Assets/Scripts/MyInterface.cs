@@ -14,33 +14,7 @@ public class MyInterface : MonoBehaviour
 
     void Start()
     {
-
-        originPos = transform.position;
-        leftPos = transform.position + new Vector3(-1.5f,0,0);
-        rightPos = transform.position + new Vector3(1.5f,0,0);
-        
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void ShiftRight(){
-        transform.localScale = transform.localScale/2;
-        
-    }
-
-    void ShiftLeft(){
-
-    }
-
-    void CancelShift(){
-        transform.localScale = transform.localScale * 2;
-
-    }
-
 
 
 }
