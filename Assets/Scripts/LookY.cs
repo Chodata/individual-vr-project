@@ -7,6 +7,7 @@ public class LookY : MonoBehaviour
     [SerializeField]
     private float _sensitivity = 2f;
     // Start is called before the first frame update
+
     void Start()
     {
         

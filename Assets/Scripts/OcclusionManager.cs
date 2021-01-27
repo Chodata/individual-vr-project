@@ -17,7 +17,7 @@ public class OcclusionManager : MonoBehaviour
     private float rotateAngle = 20f, scaleAmount, scalePercent = 0.5f;
     private int rotateSpeed = 2;
     private bool isRotated = false, isRotating = false;
-
+    public string occlusionTechnique = "Resize";
     
     
     // Start is called before the first frame update
@@ -27,8 +27,7 @@ public class OcclusionManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void ResizeTechniqueHandling(){
         bool doRotate = !isRotating && isBlocked();
         if(doRotate){
             if(isAtLeft){
@@ -55,13 +54,26 @@ public class OcclusionManager : MonoBehaviour
                 StartCoroutine(ScaleInterface(false));
             }
         }
+    }
+
+    void TransparencyTechniqueHandling(){
+
+    }
+    void Update()
+    {
+        if(occlusionTechnique == "Resize"){
+            ResizeTechniqueHandling();
+        } else if(occlusionTechnique == "Tranparency"){
+            TransparencyTechniqueHandling();
+        }
+        
 
     }
     IEnumerator ScaleInterface(bool enlarge){
         int iter = (int)rotateAngle/rotateSpeed;
         Vector3 originScale = myInterface.transform.localScale;
         if(enlarge){
-            scaleAmount = (originScale.x / scalePercent) - originScale.x;
+            scaleAmount = originScale.x / scalePercent;
             Debug.Log("Englarge");
         } else{
             scaleAmount = originScale.x * scalePercent;
@@ -77,13 +89,15 @@ public class OcclusionManager : MonoBehaviour
             }
             yield return new WaitForEndOfFrame();
         }
-        if(enlarge){
-            originScale.x += scaleAmount;
-            myInterface.transform.localScale = originScale;
-        } else{
-            originScale.x -= scaleAmount;
-            myInterface.transform.localScale = originScale;
-        }
+        myInterface.transform.localScale = new Vector3(scaleAmount,originScale.y,originScale.z);
+
+        // if(enlarge){
+        //     originScale.x += scaleAmount;
+        //     myInterface.transform.localScale = new Vector3(scaleAmount,originScale.y,originScale.z);
+        // } else{
+        //     originScale.x -= scaleAmount;
+        //     myInterface.transform.localScale = scaleAmount;
+        // }
     }
 
     IEnumerator RotateInterface(string direction){
