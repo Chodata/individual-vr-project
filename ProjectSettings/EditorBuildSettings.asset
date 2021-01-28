@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/Testing.unity
+    path: Assets/Scenes/ResizeTech.unity
     guid: 1399d5137423440fd83f0b600ffc12b8
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 91e20b813902248518c2ee228d8f4ed4,
