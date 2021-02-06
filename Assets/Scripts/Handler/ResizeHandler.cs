@@ -10,15 +10,41 @@ public class ResizeHandler : Handler
     private int rotateSpeed = 2;
     private bool isRotated = false, isRotating = false;
     private bool isAtLeft = false, isAtRight = false;
+    [SerializeField]
+    private GameObject cameraOffSet;
+    [SerializeField]
+    private GameObject pivot;
+    private Quaternion previousAngle;
+
     // Start is called before the first frame update
     void Start()
     {
+        pivot.transform.position = cameraOffSet.transform.position;
+        pivot.transform.rotation = cameraOffSet.transform.rotation;
+        previousAngle = cameraOffSet.transform.rotation;
+
+        myInterface.transform.position = new Vector3(
+            cameraOffSet.transform.position.x,
+            cameraOffSet.transform.position.y,
+            cameraOffSet.transform.position.z + 2
+            );
+        
         
     }
 
     // Update is called once per frame
     void Update()
     {
+        pivot.transform.position = cameraOffSet.transform.position;
+        pivot.transform.rotation = cameraOffSet.transform.rotation;
+
+        // rotator.transform.position = cameraOffSet.transform.position;
+        // // myInterface.setAngle(cameraOffSet.transform.rotation * rotator.transform.rotation);
+
+        // rotator.transform.rotation = rotator.transform.rotation * (cameraOffSet.transform.rotation * Quaternion.Inverse(previousAngle)) ;
+        // previousAngle = cameraOffSet.transform.rotation;
+
+
         
     }
 
@@ -80,13 +106,14 @@ public class ResizeHandler : Handler
         float angle;
         int counter = 0;
         do{
+            yield return new WaitForEndOfFrame();
+
             if(direction == "RIGHT"){
                 rotator.transform.Rotate(0f, rotateSpeed,0f, Space.Self);
 
             } else if(direction == "LEFT"){
                 rotator.transform.Rotate(0f, -rotateSpeed,0f, Space.Self);
             }
-            yield return new WaitForEndOfFrame();
             counter += rotateSpeed;
             // angle = Mathf.Clamp(rotator.transform.rotation.eulerAngles.y, -rotateAngle, rotateAngle);
             // rotator.transform.rotation.eulerAngles = Quaternion.Euler(0.0f, angle, 0.0f); 
