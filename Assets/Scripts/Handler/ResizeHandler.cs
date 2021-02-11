@@ -6,7 +6,7 @@ public class ResizeHandler : Handler
 {    
     [SerializeField]
     private GameObject rotator;
-    private float rotateAngle = 20f, scaleAmount, scalePercent = 0.5f;
+    private float rotateAngle = 15f, scaleAmount, scalePercent = 0.5f;
     private int rotateSpeed = 2;
     private bool isRotated = false, isRotating = false;
     private bool isAtLeft = false, isAtRight = false;
