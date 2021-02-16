@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 public class SimpleSampleCharacterControl : MonoBehaviour
 {
@@ -42,6 +43,10 @@ public class SimpleSampleCharacterControl : MonoBehaviour
     private bool m_isGrounded;
 
     private List<Collider> m_collisions = new List<Collider>();
+
+    public bool hasStart = false;
+    public float v,h, idleTime = 2f;
+    
 
     private void Awake()
     {
@@ -135,12 +140,71 @@ public class SimpleSampleCharacterControl : MonoBehaviour
         m_jumpInput = false;
     }
 
+    IEnumerator WalkCoroutine(){
+        bool wasAtRight = false, isRotating = false;
+        float originAngle = transform.rotation.eulerAngles.y;
+        float angleY = originAngle;
+        while(true){
+            angleY = transform.rotation.eulerAngles.y;
+            originAngle = angleY;
+            while(true){
+                if(isRotating){
+                    angleY = transform.rotation.eulerAngles.y;
+                    v = 0;
+                    h = 1;
+                    if(Mathf.Abs(originAngle - angleY) >= 180){
+                        Vector3 currentEuler = transform.eulerAngles;
+                        if(!wasAtRight){
+                            currentEuler.y = -90;
+                        } else{
+                            currentEuler.y = 90;
+                        }
+                        isRotating = false;
+                        h = 0;
+                        wasAtRight = !wasAtRight;
+                        yield return new WaitForSeconds(idleTime);
+                        transform.eulerAngles = currentEuler;
+                        break;
+                    }
+                }else{
+                    break;
+                }
+                yield return new WaitForEndOfFrame();
+            }
+            while(true){
+                if(!isRotating){
+                    v = 1;
+                    h = 0;
+                    if(transform.position.x > 2 && !wasAtRight){
+                        isRotating = true;
+                        break;
+                    } else if(transform.position.x < -2 && wasAtRight){
+                        isRotating = true;
+                        break;
+                    }
+                } else{
+                    break;
+                }
+                yield return new WaitForEndOfFrame();
+
+            }
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
+
     private void TankUpdate()
     {
-        float v = Input.GetAxis("Vertical");
-        float h = Input.GetAxis("Horizontal");
+        if(!hasStart){
+            StartCoroutine(WalkCoroutine());
+            hasStart = true;
+        }
+        // float v = Input.GetAxis("Vertical");
+        // float h = Input.GetAxis("Horizontal");
 
-        bool walk = Input.GetKey(KeyCode.LeftShift);
+
+        // bool walk = Input.GetKey(KeyCode.LeftShift);
+        bool walk = true;
 
         if (v < 0)
         {
@@ -167,6 +231,7 @@ public class SimpleSampleCharacterControl : MonoBehaviour
     {
         float v = Input.GetAxis("Vertical");
         float h = Input.GetAxis("Horizontal");
+
 
         Transform camera = Camera.main.transform;
 

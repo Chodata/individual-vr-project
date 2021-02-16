@@ -5,7 +5,7 @@ abstract public class Handler: MonoBehaviour{
     [SerializeField]
     protected MyInterface myInterface;
     [SerializeField]
-    protected MyObject myObject;
+    protected GameObject myObject;
     [SerializeField]
     protected Camera camera;
     protected RaycastHit hit;

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MyObject : MonoBehaviour
 {
+    public GameObject pos;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,9 +14,7 @@ public class MyObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 direction = new Vector3(0,0,0);
-
-        transform.Translate(direction * Time.deltaTime);
+        transform.position = pos.transform.position;
         
     }
 }
