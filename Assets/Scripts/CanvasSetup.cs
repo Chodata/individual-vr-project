@@ -66,7 +66,7 @@ namespace Vuplex.WebView.Demos {
             // Also add an on-screen keyboard under the main webview.
             var keyboard = MyKeyboard.Instantiate();
             keyboard.transform.parent = _canvasWebViewPrefab.transform;
-            keyboard.transform.position = new Vector3(0.5f,-0.5f,0) + rotator.transform.GetChild(0).gameObject.transform.position;
+            keyboard.transform.position = new Vector3(0f,-0.5f,0) + rotator.transform.GetChild(0).gameObject.transform.position;
             keyboard.transform.localScale = new Vector3(1300,1300,1);
             keyboard.transform.localEulerAngles = new Vector3(0,180,0);
             keyboard.InputReceived += (sender, eventArgs) => {
