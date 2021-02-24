@@ -8065,7 +8065,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1639687800}
+      - m_Target: {fileID: 0}
         m_MethodName: LoadSceneResize
         m_Mode: 1
         m_Arguments:
@@ -9284,7 +9284,7 @@ GameObject:
   - component: {fileID: 1639687801}
   - component: {fileID: 1639687800}
   m_Layer: 0
-  m_Name: SceneManager
+  m_Name: MySceneManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9299,7 +9299,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1639687799}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36497e7df670a4f428a0d699dc2eaa0b, type: 3}
+  m_Script: {fileID: 11500000, guid: 7fa7ad3aa0d704cd68975882ab1d61b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1639687801
@@ -11955,7 +11955,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1639687800}
+      - m_Target: {fileID: 0}
         m_MethodName: LoadSceneResize
         m_Mode: 1
         m_Arguments:
