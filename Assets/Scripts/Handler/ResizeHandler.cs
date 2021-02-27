@@ -6,7 +6,7 @@ public class ResizeHandler : Handler
 {    
     [SerializeField]
     private GameObject rotator;
-    private float rotateAngle = 15f, scaleAmount, scalePercent = 0.5f;
+    private float rotateAngle = 14f, scaleAmount, scalePercent = 0.5f;
     private int rotateSpeed = 2;
     private bool isRotated = false, isRotating = false;
     private bool isAtLeft = false, isAtRight = false;
@@ -24,9 +24,9 @@ public class ResizeHandler : Handler
         previousAngle = cameraOffSet.transform.rotation;
 
         myInterface.transform.position = new Vector3(
-            cameraOffSet.transform.position.x,
+            cameraOffSet.transform.position.x -0.1f,
             cameraOffSet.transform.position.y,
-            cameraOffSet.transform.position.z + 2
+            cameraOffSet.transform.position.z + 2.5f
             );
         
         
@@ -120,6 +120,7 @@ public class ResizeHandler : Handler
             // Debug.Log(rotator.transform.rotation.y);
         // }while(Mathf.Abs(rotator.transform.rotation.eulerAngles.y) < rotateAngle);
         }while(rotateAngle > counter);
+        yield return new WaitForSeconds(0.5f);
         isRotating = false;
 
     }

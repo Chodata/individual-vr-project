@@ -23,4 +23,7 @@ public class MySceneManager : MonoBehaviour
     public void LoadSceneMain(){
          SceneManager.LoadScene("MainMenu");
     }
+    public void LoadSceneOverlay(){
+         SceneManager.LoadScene("OverlayTech");
+    }
 }

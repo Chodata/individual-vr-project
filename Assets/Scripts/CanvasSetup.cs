@@ -41,8 +41,7 @@ namespace Vuplex.WebView.Demos {
     /// </remarks>
     class CanvasSetup : MonoBehaviour {
 
-        [SerializeField]
-        GameObject rotator;
+
         CanvasWebViewPrefab _canvasWebViewPrefab;
         HardwareKeyboardListener _hardwareKeyboardListener;
 
@@ -66,14 +65,38 @@ namespace Vuplex.WebView.Demos {
             // Also add an on-screen keyboard under the main webview.
             var keyboard = MyKeyboard.Instantiate();
             keyboard.transform.parent = _canvasWebViewPrefab.transform;
-            keyboard.transform.position = new Vector3(0f,-0.5f,0) + rotator.transform.GetChild(0).gameObject.transform.position;
+            keyboard.transform.position = new Vector3(0f,-0.6f,0) + _canvasWebViewPrefab.transform.position;
             keyboard.transform.localScale = new Vector3(1300,1300,1);
             keyboard.transform.localEulerAngles = new Vector3(0,180,0);
             keyboard.InputReceived += (sender, eventArgs) => {
                 _canvasWebViewPrefab.WebView.HandleKeyboardInput(eventArgs.Value);
             };
-            // keyboard.gameObject.AddComponent(typeof(XRSimpleInteractable));
+            // _canvasWebViewPrefab.transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("UI");
+            // _canvasWebViewPrefab.transform.GetChild(1).gameObject.layer = LayerMask.NameToLayer("UI");
 
+            // keyboard.gameObject.layer = LayerMask.NameToLayer("UI");
+            // keyboard.gameObject.AddComponent(typeof(XRSimpleInteractable));
+            SetLayerRecursively(_canvasWebViewPrefab.gameObject);
+
+        }
+        public void SetLayerRecursively(GameObject obj)
+        {
+
+            if (null == obj)
+            {
+                return;
+            }
+        
+            obj.layer = LayerMask.NameToLayer("UI");;
+        
+            foreach (Transform child in obj.transform)
+            {
+                if (null == child)
+                {
+                    continue;
+                }
+                SetLayerRecursively(child.gameObject);
+            }
         }
     }
 }
