@@ -26,4 +26,7 @@ public class MySceneManager : MonoBehaviour
     public void LoadSceneOverlay(){
          SceneManager.LoadScene("OverlayTech");
     }
+    public void LoadSceneTransparent(){
+         SceneManager.LoadScene("TransparentTech");
+    }
 }

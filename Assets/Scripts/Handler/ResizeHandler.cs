@@ -14,14 +14,12 @@ public class ResizeHandler : Handler
     private GameObject cameraOffSet;
     [SerializeField]
     private GameObject pivot;
-    private Quaternion previousAngle;
 
     // Start is called before the first frame update
     void Start()
     {
         pivot.transform.position = cameraOffSet.transform.position;
         pivot.transform.rotation = cameraOffSet.transform.rotation;
-        previousAngle = cameraOffSet.transform.rotation;
 
         myInterface.transform.position = new Vector3(
             cameraOffSet.transform.position.x -0.1f,

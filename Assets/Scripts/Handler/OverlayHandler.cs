@@ -6,8 +6,7 @@ public class OverlayHandler : Handler
 {
     [SerializeField]
     private GameObject pivot;
-    [SerializeField]
-    private GameObject cameraOffSet;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +23,6 @@ public class OverlayHandler : Handler
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(pivot.transform.position);
-        Debug.Log(cameraOffSet.transform.position);
         pivot.transform.position = base.camera.transform.position;
         pivot.transform.rotation = base.camera.transform.rotation;
     }

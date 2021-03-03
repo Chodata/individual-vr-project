@@ -18,12 +18,12 @@ abstract public class Handler: MonoBehaviour{
     if (Physics.Raycast(startRay, endRay, out hit, 100) && hit.collider.gameObject.tag == "MyInterface")
     {
         Debug.DrawRay(startRay, endRay * hit.distance, Color.red);
-        // Debug.Log("Did Hit");
+        Debug.Log("Did Hit");
         return true;
     }
     else {
         Debug.DrawRay(startRay, endRay * 1000, Color.white);
-        // Debug.Log("Did not Hit");
+        Debug.Log("Did not Hit");
         return false;
     }}
 
