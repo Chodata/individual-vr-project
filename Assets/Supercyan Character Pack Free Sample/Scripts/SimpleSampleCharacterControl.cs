@@ -45,7 +45,8 @@ public class SimpleSampleCharacterControl : MonoBehaviour
     private List<Collider> m_collisions = new List<Collider>();
 
     public bool hasStart = false;
-    public float v,h, idleTime = 2f;
+    public float v,h, idleTime = 8f;
+    public GlobalVar globalVar;
     
 
     private void Awake()
@@ -114,6 +115,16 @@ public class SimpleSampleCharacterControl : MonoBehaviour
         if (!m_jumpInput && Input.GetKey(KeyCode.Space))
         {
             m_jumpInput = true;
+        }
+
+    }
+
+    IEnumerator RandomJump(){
+        while(true){
+            yield return new WaitForSeconds(Random.Range(10,15));
+            
+            m_jumpInput = true;
+            GlobalVar.numberOfJump += 1;
         }
     }
 
@@ -196,7 +207,9 @@ public class SimpleSampleCharacterControl : MonoBehaviour
     private void TankUpdate()
     {
         if(!hasStart){
+            // globalVar = GameObject.Find("GlobalVar").GetComponent<GlobalVar>();
             StartCoroutine(WalkCoroutine());
+            StartCoroutine(RandomJump());
             hasStart = true;
         }
         // float v = Input.GetAxis("Vertical");
