@@ -6705,9 +6705,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Resize Technique
-
-'
+  m_Text: "Transformation\n Technique\n"
 --- !u!222 &1179653341
 CanvasRenderer:
   m_ObjectHideFlags: 0
